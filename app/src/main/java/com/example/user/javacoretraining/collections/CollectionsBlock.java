@@ -1,6 +1,6 @@
 package com.example.user.javacoretraining.collections;
 
-import android.support.annotation.NonNull;
+import androidx.annotation.NonNull;
 
 import java.util.Collections;
 import java.util.List;
