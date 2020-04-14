@@ -2,7 +2,8 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/app.iml" filepath="$PROJECT_DIR$/app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/app.iml" filepath="$PROJECT_DIR$/app.iml" group="javacoreTraining-master/app" />
+      <module fileurl="file://$PROJECT_DIR$/../javacoreTraining-master.iml" filepath="$PROJECT_DIR$/../javacoreTraining-master.iml" group="javacoreTraining-master" />
     </modules>
   </component>
 </project>
