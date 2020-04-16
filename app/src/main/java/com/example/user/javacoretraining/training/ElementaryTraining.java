@@ -20,8 +20,7 @@ public class ElementaryTraining {
      * @return среднее значение для введенных чисел
      */
     public double averageValue(int firstValue, int secondValue) {
-        //TODO: implement it
-        return 0;
+        return (firstValue + secondValue) / 2.0;
     }
 
     /**
@@ -34,8 +33,10 @@ public class ElementaryTraining {
      * @return сумма новых трех чисел
      */
     public double complicatedAmount(int firstValue, int secondValue, int thirdValue) {
-        //TODO: implement it
-        return 0;
+        double firstValueBuf = firstValue * 2;
+        int secondValueBuf = secondValue - 3;
+        int thirdValueBuf = (int) Math.pow(thirdValue, 2);
+        return firstValueBuf + secondValueBuf + thirdValueBuf;
     }
 
     /**
@@ -47,7 +48,11 @@ public class ElementaryTraining {
      * @return новое значение
      */
     public int changeValue(int value) {
-        //TODO: implement it
+        if (value > 3) {
+            value += 10;
+        } else {
+            value -= 10;
+        }
         return value;
     }
 
@@ -62,8 +67,25 @@ public class ElementaryTraining {
      * @return новое число
      */
     public int swapNumbers(int value) {
-        //TODO: implement it
-        return 0;
+        if (String.valueOf(value).length() > 5 || value < 10) {
+            return value;
+        }
+
+        int res = value % 10;
+        value /= 10;
+
+        int inversion = 10;
+        while (value > 9) {
+            inversion = (inversion * 10) + value % 10;
+            value /= 10;
+        }
+
+        while (inversion > 10) {
+            res = (res * 10) + inversion % 10;
+            inversion /= 10;
+        }
+        res = (res * 10) + value;
+        return res;
     }
 
     /**
@@ -77,7 +99,24 @@ public class ElementaryTraining {
      * @return новое число
      */
     public int zeroEvenNumber(int value) {
-        //TODO: implement it
-        return 0;
+        if (value < 10 || value > 99999) {
+            return value;
+        }
+
+        int buffer = 0;
+        while (value > 0) {
+            if ((value % 10) % 2 == 0) {
+                buffer = (buffer * 10);
+            } else {
+                buffer = (buffer * 10) + value % 10;
+            }
+            value /= 10;
+        }
+        int res = 0;
+        while (buffer > 0) {
+            res = (res * 10) + buffer % 10;
+            buffer /= 10;
+        }
+        return res;
     }
 }
