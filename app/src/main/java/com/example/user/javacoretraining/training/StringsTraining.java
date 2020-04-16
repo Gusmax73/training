@@ -24,7 +24,7 @@ public class StringsTraining {
      */
     public String getOddCharacterString(String text) {
         StringBuilder res = new StringBuilder();
-        for(int i=1; i < text.length(); i+=2) {
+        for (int i = 1; i < text.length(); i += 2) {
             res.append(text.charAt(i));
         }
         return res.toString();
@@ -42,21 +42,20 @@ public class StringsTraining {
      */
     public int[] getArrayLastSymbol(String text) {
         int j = 0;
-        for(int i=0; i < text.length()-1; i++) {
-            if(text.charAt(i) == text.charAt(text.length() - 1)) {
+        for (int i = 0; i < text.length() - 1; i++) {
+            if (text.charAt(i) == text.charAt(text.length() - 1)) {
                 j++;
             }
         }
 
         int[] res = new int[j];
         j = 0;
-        for(int i=0; i < text.length()-1; i++) {
-            if(text.charAt(i) == text.charAt(text.length() - 1)) {
+        for (int i = 0; i < text.length() - 1; i++) {
+            if (text.charAt(i) == text.charAt(text.length() - 1)) {
                 res[j] = i;
                 j++;
             }
         }
-
         return res;
     }
 
@@ -69,9 +68,9 @@ public class StringsTraining {
      */
     public int getNumbersCount(String text) {
         int count = 0;
-        for(int i=0; i < text.length(); i++) {
-            if(Character.isDigit(text.charAt(i))) {
-                count ++;
+        for (char ch : text.toCharArray()) {
+            if (Character.isDigit(ch)) {
+                count++;
             }
         }
         return count;
@@ -97,9 +96,9 @@ public class StringsTraining {
         String nine = "nine";
 
         StringBuilder res = new StringBuilder();
-        for(int i=0; i < text.length(); i++) {
-            if(Character.isDigit(text.charAt(i))) {
-                switch (text.charAt(i)){
+        for (char ch : text.toCharArray()) {
+            if (Character.isDigit(ch)) {
+                switch (ch) {
                     case '0':
                         res.append(zero);
                         break;
@@ -131,9 +130,8 @@ public class StringsTraining {
                         res.append(nine);
                         break;
                 }
-            }
-            else {
-                res.append(text.charAt(i));
+            } else {
+                res.append(ch);
             }
         }
 
@@ -149,12 +147,11 @@ public class StringsTraining {
      */
     public String capitalReverse(String text) {
         StringBuilder res = new StringBuilder();
-        for(int i=0; i < text.length(); i++) {
-            if(Character.isLowerCase(text.charAt(i))) {
-                res.append(Character.toUpperCase(text.charAt(i)));
-            }
-            else {
-                res.append(Character.toLowerCase(text.charAt(i)));
+        for (char ch : text.toCharArray()) {
+            if (Character.isLowerCase(ch)) {
+                res.append(Character.toUpperCase(ch));
+            } else {
+                res.append(Character.toLowerCase(ch));
             }
         }
         return res.toString();
