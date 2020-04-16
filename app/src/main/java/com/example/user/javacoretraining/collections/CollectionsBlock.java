@@ -1,9 +1,16 @@
 package com.example.user.javacoretraining.collections;
 
+import android.util.ArraySet;
+
 import androidx.annotation.NonNull;
 
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Collections;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 /**
  * Набор тренингов по работе со строками в java.
@@ -27,8 +34,19 @@ public class CollectionsBlock<T extends Comparable> {
      * @throws NullPointerException если один из параметров null
      */
     public List<T> collectionTask0(@NonNull List<T> firstList, @NonNull List<T> secondList) {
-        //TODO: implement it
-        return Collections.emptyList();
+        List<T> combinedList = new ArrayList<>(firstList.size() + secondList.size());
+        try {
+            if (!firstList.isEmpty()) {
+                combinedList.addAll(firstList);
+            }
+            if (!secondList.isEmpty()) {
+                combinedList.addAll(secondList);
+            }
+            Collections.sort(combinedList, Collections.reverseOrder());
+        } catch (NullPointerException e) {
+            throw new NullPointerException();
+        }
+        return combinedList;
     }
 
     /**
@@ -39,8 +57,21 @@ public class CollectionsBlock<T extends Comparable> {
      * @throws NullPointerException если один из параметров null
      */
     public List<T> collectionTask1(@NonNull List<T> inputList) {
-        //TODO: implement it
-        return Collections.emptyList();
+        if(inputList.isEmpty()){
+           return inputList;
+        }
+        List<T> resultList = new ArrayList<>();
+        try {
+            for(int i=0; i < inputList.size(); i++) {
+                resultList.add(inputList.get(i));
+                for(int j=0; j < i; j++){
+                    resultList.add(inputList.get(j));
+                }
+            }
+        } catch (NullPointerException e) {
+            throw new NullPointerException();
+        }
+        return resultList;
     }
 
     /**
@@ -52,8 +83,19 @@ public class CollectionsBlock<T extends Comparable> {
      * @throws NullPointerException если один из параметров null
      */
     public boolean collectionTask2(@NonNull List<T> firstList, @NonNull List<T> secondList) {
-        //TODO: implement it
-        return true;
+        Set<T> firstSet = new HashSet<>();
+        Set<T> secondSet = new HashSet<>();
+        try {
+            if(!firstList.isEmpty()) {
+                firstSet.addAll(firstList);
+            }
+            if(!secondList.isEmpty()) {
+                secondSet.addAll(secondList);
+            }
+        } catch (NullPointerException e) {
+            throw new NullPointerException();
+        }
+        return firstSet.equals(secondSet);
     }
 
     /**
@@ -68,8 +110,12 @@ public class CollectionsBlock<T extends Comparable> {
      * @throws NullPointerException если один из параметров null
      */
     public List<T> collectionTask3(@NonNull List<T> inputList, int n) {
-        //TODO: implement it
-        return Collections.emptyList();
+        try {
+            Collections.rotate(inputList, n);
+        } catch (NullPointerException e) {
+            throw new NullPointerException();
+        }
+        return inputList;
     }
 
     /**
@@ -84,8 +130,15 @@ public class CollectionsBlock<T extends Comparable> {
      */
     public List<String> collectionTask4(@NonNull List<String> inputList, @NonNull String a,
                                         @NonNull String b) {
-        //TODO: implement it
-        return Collections.emptyList();
+        int index;
+        try {
+            while( (index = inputList.indexOf(a)) > -1) {
+                inputList.set(index, b);
+            }
+        } catch (NullPointerException e) {
+            throw new NullPointerException();
+        }
+        return inputList;
     }
 
     /*
